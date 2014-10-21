@@ -13,7 +13,7 @@ using namespace std;
 
 const int MAXLEN = 100;
 
-//构造动态规划表
+//构造动态规划表, 其中str1的字符放在横向, str2的字符纵向排列
 void LCSLength(char *str1, char *str2, int m, int n, int c[][MAXLEN], int d[][MAXLEN])
 {
 	int i, j;
