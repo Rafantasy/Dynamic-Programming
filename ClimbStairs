@@ -1,0 +1,46 @@
+//爬楼梯问题
+//动态规划，采用分治的策略，把求最优解问题分解为求若干子问题的最优解，记录子问题的解，化繁为简，很实用，也很高效
+
+//题目,假设有n阶楼梯,每次可走1阶或2阶,求爬到顶端可有多少种方法
+
+//方案一：采用递归的方法
+int climbStairs(int n)
+{
+  if(n<0)
+    return -1;
+  if(n == 0 || n == 1)
+    return 1;
+  return climbStairs(n-1) + climbStairs(n-2);
+}
+
+//采用动态规划的方法
+int ClimsStairs(int n)
+{
+  vector<int> count(n+1);
+  count[0] = 1;
+  count[1] = 1;
+  if(n <= 1)
+    return count[n];
+  for(int i = 2; i <= n; ++i){
+    count[i] = count[i-1] + count[i-2];
+  }
+  
+  return count[n];
+}
+
+//动态规划的方法之二
+//缺点是必须提前定义一个容量大于等于输入台阶数n的数组
+int count[n] = {0];
+int climbStairs(int n)
+{
+  if(count[n] != 0)
+    return count[n];
+  int result;
+  if(n == 0 || n == 1)
+    result = 1;
+  else{
+    result = climbStairs(n-1) + climbStairs(n-2);
+  }
+  count[n] = result;
+  return count[n];
+}
