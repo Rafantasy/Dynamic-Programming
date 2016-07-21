@@ -30,7 +30,7 @@ int ClimsStairs(int n)
 
 //动态规划的方法之二
 //缺点是必须提前定义一个容量大于等于输入台阶数n的数组
-int count[n] = {0];
+int count[n] = {0};
 int climbStairs(int n)
 {
   if(count[n] != 0)
